@@ -1,0 +1,18 @@
+.controls {
+    margin-bottom: 1rem;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-gap: 1rem;
+    padding: 1rem;
+    text-align: left;
+}
+
+.item {
+    background-color: #3c414e;
+    border-radius: 5px;
+    padding: 1rem;
+    margin: 0;
+}
