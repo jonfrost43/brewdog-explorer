@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import Home from './views/Home';
+import Beer from './views/Beer';
 import './App.css';
 
 function App() {
@@ -14,8 +15,8 @@ function App() {
                     <Route exact path="/">
                         <Home />
                     </Route>
-                    <Route path="/beer">
-                        <h2>beer detail</h2>
+                    <Route path="/beer/:id">
+                        <Beer />
                     </Route>
                 </Switch>
             </BrowserRouter>

@@ -1,0 +1,14 @@
+.card {
+    background-color: #3c414e;
+    border-radius: 5px;
+    padding: 1rem;
+}
+
+.card a {
+    color: #61dafb;
+    text-decoration: none;
+}
+
+.card a:hover {
+    text-decoration: underline;
+}

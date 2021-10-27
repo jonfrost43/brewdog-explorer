@@ -1,5 +1,7 @@
 import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import styles from './Home.module.css';
+import Card from '../common/Card/Card';
 
 function Home() {
     const [beers, setBeers] = useState([] as any[]);
@@ -38,9 +40,9 @@ function Home() {
 
             <div className={styles.grid}>
                 {beers.map((beer) => (
-                    <p key={beer.id} className={styles.item}>
-                        {beer.name}
-                    </p>
+                    <Card key={beer.id}>
+                        <Link to={'/beer/' + beer.id}>{beer.name}</Link>
+                    </Card>
                 ))}
             </div>
         </div>
