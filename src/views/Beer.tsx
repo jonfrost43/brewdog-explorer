@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import styles from './Beer.module.css';
+import Header from '../common/Header/Header';
 import Card from '../common/Card/Card';
 import Chart from 'react-apexcharts';
 
@@ -40,8 +41,7 @@ function Beer() {
 
     return (
         <div>
-            <h2>{beer.name}</h2>
-            <p>{beer.tagline}</p>
+            <Header headingText={beer.name} subHeadingText={beer.tagline} />
 
             <div className={styles.grid}>
                 <Card className={styles.abv}>
@@ -70,6 +70,9 @@ function Beer() {
                             chart: {
                                 stacked: true,
                                 background: 'transparent',
+                                toolbar: {
+                                    show: false,
+                                },
                             },
                             theme: {
                                 mode: 'dark',

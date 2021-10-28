@@ -1,19 +1,42 @@
+.header {
+    margin-bottom: 2rem;
+}
+
+.heading {
+    font-size: 1.6rem;
+    margin: 0;
+}
+
+.tagline {
+    color: #999;
+    font-weight: normal;
+    font-size: 1.6rem;
+    margin: 0;
+}
+
 .grid {
     display: grid;
-    grid-template-columns: repeat(8, 1fr);
+    grid-template-columns: repeat(10, 1fr);
     grid-template-areas:
-        'abv desc desc desc desc desc desc desc'
-        'hops hops hops hops malt malt malt malt';
+        'abv abv desc desc desc desc desc desc desc desc'
+        'hops hops hops hops hops malt malt malt malt malt';
     grid-gap: 1rem;
-    padding: 1rem;
 }
 
 .abv {
     grid-area: abv;
+    font-size: 2rem;
+    text-align: center;
+    display: grid;
+    align-items: center;
 }
 
 .desc {
     grid-area: desc;
+    padding: 1rem 2rem;
+    line-height: 1.5;
+    display: grid;
+    align-items: center;
 }
 
 .hops {
