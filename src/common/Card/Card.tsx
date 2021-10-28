@@ -1,11 +1,13 @@
 import styles from './Card.module.css';
 
 interface IProps {
-    children: React.ReactElement;
+    children: React.ReactElement | React.ReactElement[];
+    className?: string | string[];
 }
 
-function Card({ children }: IProps) {
-    return <div className={styles.card}>{children}</div>;
+function Card({ children, className }: IProps) {
+    const classNames = [styles.card, className].join(' ');
+    return <div className={classNames}>{children}</div>;
 }
 
 export default Card;

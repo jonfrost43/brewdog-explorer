@@ -1,6 +1,25 @@
 .grid {
     display: grid;
-    grid-template-columns: auto auto;
+    grid-template-columns: repeat(8, 1fr);
+    grid-template-areas:
+        'abv desc desc desc desc desc desc desc'
+        'hops hops hops hops malt malt malt malt';
     grid-gap: 1rem;
     padding: 1rem;
+}
+
+.abv {
+    grid-area: abv;
+}
+
+.desc {
+    grid-area: desc;
+}
+
+.hops {
+    grid-area: hops;
+}
+
+.malt {
+    grid-area: malt;
 }
