@@ -4,8 +4,14 @@
     padding: 1rem;
 }
 
+.card.link {
+    padding: 0;
+}
+
 .card a {
     color: #61dafb;
+    display: block;
+    padding: 1rem;
     text-decoration: none;
 }
 

@@ -12,7 +12,7 @@ function Home() {
 
             <div className={styles.grid}>
                 {YEARS.map((year) => (
-                    <Card key={year}>
+                    <Card key={year} linkOnly>
                         <Link to={'/search/' + year}>{year}</Link>
                     </Card>
                 ))}

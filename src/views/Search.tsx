@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
-import styles from './Home.module.css';
+import styles from './Search.module.css';
 import Header from '../common/Header/Header';
 import Card from '../common/Card/Card';
 
@@ -22,7 +22,7 @@ function Search() {
 
             <div className={styles.grid}>
                 {beers.map((beer) => (
-                    <Card key={beer.id}>
+                    <Card key={beer.id} linkOnly>
                         <Link to={'/beer/' + beer.id}>{beer.name}</Link>
                     </Card>
                 ))}
