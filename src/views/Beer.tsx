@@ -19,21 +19,16 @@ function Beer() {
         fetch(`https://api.punkapi.com/v2/beers/${id}`)
             .then((res) => res.json())
             .then((result) => {
-                result[0].chartableHops = result[0].ingredients.hops.reduce(
-                    (hops: any, hop: any) => {
-                        const existingHop = hops.find(
-                            (h: any) => h.name === hop.name
-                        );
-                        if (!existingHop) {
-                            hop[hop.add] = hop.amount.value;
-                            hops.push(hop);
-                        } else {
-                            existingHop[hop.add] = hop.amount.value;
-                        }
-                        return hops;
-                    },
-                    []
-                );
+                result[0].chartableHops = result[0].ingredients.hops.reduce((hops: any, hop: any) => {
+                    const existingHop = hops.find((h: any) => h.name === hop.name);
+                    if (!existingHop) {
+                        hop[hop.add] = hop.amount.value;
+                        hops.push(hop);
+                    } else {
+                        existingHop[hop.add] = hop.amount.value;
+                    }
+                    return hops;
+                }, []);
 
                 setBeer(result[0]);
             });
@@ -54,16 +49,10 @@ function Beer() {
                     <h3>Hop profile</h3>
                     <Chart
                         type="bar"
-                        series={[
-                            ...new Set(
-                                beer.ingredients.hops.map((hop: any) => hop.add)
-                            ),
-                        ].map((stage: any) => {
+                        series={[...new Set(beer.ingredients.hops.map((hop: any) => hop.add))].map((stage: any) => {
                             return {
                                 name: stage,
-                                data: beer.chartableHops.map(
-                                    (hop: any) => hop[stage] || 0
-                                ),
+                                data: beer.chartableHops.map((hop: any) => hop[stage] || 0),
                             };
                         })}
                         options={{
@@ -78,13 +67,7 @@ function Beer() {
                                 mode: 'dark',
                             },
                             xaxis: {
-                                categories: [
-                                    ...new Set(
-                                        beer.ingredients.hops.map(
-                                            (hop: any) => hop.name
-                                        )
-                                    ),
-                                ],
+                                categories: [...new Set(beer.ingredients.hops.map((hop: any) => hop.name))],
                             },
                             plotOptions: {
                                 bar: {
@@ -101,9 +84,7 @@ function Beer() {
                     <h3>Malt profile</h3>
                     <Chart
                         type="donut"
-                        series={beer.ingredients.malt.map(
-                            (malt: any) => malt.amount.value
-                        )}
+                        series={beer.ingredients.malt.map((malt: any) => malt.amount.value)}
                         options={{
                             chart: {
                                 background: 'transparent',
@@ -111,9 +92,7 @@ function Beer() {
                             theme: {
                                 mode: 'dark',
                             },
-                            labels: beer.ingredients.malt.map(
-                                (malt: any) => malt.name
-                            ),
+                            labels: beer.ingredients.malt.map((malt: any) => malt.name),
                             dataLabels: {
                                 enabled: false,
                             },

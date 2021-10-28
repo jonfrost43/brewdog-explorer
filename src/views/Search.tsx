@@ -9,9 +9,7 @@ function Search() {
     const [beers, setBeers] = useState([] as any[]);
 
     useEffect(() => {
-        fetch(
-            `https://api.punkapi.com/v2/beers?brewed_after=01-${year}&brewed_before=12-${year}&per_page=80`
-        )
+        fetch(`https://api.punkapi.com/v2/beers?brewed_after=01-${year}&brewed_before=12-${year}&per_page=80`)
             .then((res) => res.json())
             .then((result) => {
                 setBeers(result);
@@ -20,10 +18,7 @@ function Search() {
 
     return (
         <div>
-            <Header
-                headingText={`Brews from ${year}`}
-                subHeadingText="Select one to discover more"
-            />
+            <Header headingText={`Brews from ${year}`} subHeadingText="Select one to discover more" />
 
             <div className={styles.grid}>
                 {beers.map((beer) => (
