@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import { BrowserRouter, Switch, Route, Link } from 'react-router-dom';
 import Home from './views/Home';
 import Search from './views/Search';
 import Beer from './views/Beer';
@@ -8,10 +8,12 @@ import styles from './App.module.css';
 function App() {
     return (
         <div className={styles.app}>
-            <header className={styles.header}>
-                <h1>brewdog-explorer</h1>
-            </header>
             <BrowserRouter>
+                <header className={styles.header}>
+                    <h1>
+                        <Link to="/">brewdog-explorer</Link>
+                    </h1>
+                </header>
                 <Switch>
                     <Route exact path="/">
                         <Home />

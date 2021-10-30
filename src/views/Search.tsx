@@ -17,8 +17,8 @@ function Search() {
     }, [year]);
 
     return (
-        <div>
-            <Header headingText={`Brews from ${year}`} subHeadingText="Select one to discover more" />
+        <div id="search">
+            <Header headingText={`Beers brewed in ${year}`} subHeadingText="Select one to discover its recipe" />
 
             <div className={styles.grid}>
                 {beers.map((beer) => (
