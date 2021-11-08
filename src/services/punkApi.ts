@@ -11,7 +11,20 @@ export const punkApi = createApi({
         }),
         getBeerById: builder.query({
             query: (id) => `beers/${id}`,
-            transformResponse: (response: any) => response[0],
+            transformResponse: (response: any) => {
+                response[0].chartableHops = response[0].ingredients.hops.reduce((hops: any, hop: any) => {
+                    const existingHop = hops.find((h: any) => h.name === hop.name);
+                    if (!existingHop) {
+                        hop[hop.add] = hop.amount.value;
+                        hops.push(hop);
+                    } else {
+                        existingHop[hop.add] = hop.amount.value;
+                    }
+                    return hops;
+                }, []);
+
+                return response[0];
+            },
         }),
     }),
 });

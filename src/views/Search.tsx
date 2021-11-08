@@ -6,13 +6,13 @@ import Card from '../common/Card/Card';
 
 function Search() {
     const { year }: any = useParams();
-    const { data, error, isSuccess } = useGetBeersByYearQuery(year);
+    const { data, isError, isSuccess } = useGetBeersByYearQuery(year);
 
     return (
         <div id="search">
             <Header headingText={`Beers brewed in ${year}`} subHeadingText="Select one to discover its recipe" />
 
-            {error && <p>An error occured</p>}
+            {isError && <p>An error occured</p>}
 
             <div className={styles.grid}>
                 {isSuccess &&
