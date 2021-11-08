@@ -1,11 +1,14 @@
 import { useState, useEffect } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useParams, useLocation } from 'react-router-dom';
 import styles from './Search.module.css';
 import Header from '../common/Header/Header';
 import Card from '../common/Card/Card';
 
 function Search() {
-    const { year }: any = useParams();
+    const { yearBrewed }: any = useParams();
+    const location = useLocation();
+
+    const [year] = useState(yearBrewed);
     const [beers, setBeers] = useState([] as any[]);
 
     useEffect(() => {
@@ -23,7 +26,9 @@ function Search() {
             <div className={styles.grid}>
                 {beers.map((beer) => (
                     <Card key={beer.id} linkOnly>
-                        <Link to={'/beer/' + beer.id}>{beer.name}</Link>
+                        <Link to={{ pathname: '/beer/' + beer.id, state: { from: location.pathname } }}>
+                            {beer.name}
+                        </Link>
                     </Card>
                 ))}
             </div>

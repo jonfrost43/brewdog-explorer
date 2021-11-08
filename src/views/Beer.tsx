@@ -6,8 +6,9 @@ import Card from '../common/Card/Card';
 import Chart from 'react-apexcharts';
 
 function Beer() {
-    const { id }: any = useParams();
+    const { beerId }: any = useParams();
 
+    const [id] = useState(beerId);
     const [beer, setBeer] = useState({
         ingredients: {
             malt: [],

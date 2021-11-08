@@ -2,11 +2,45 @@
     padding: 0 1rem 1rem;
 }
 
-.header {
-    font-size: calc(10px + 2vmin);
+.enter,
+.enterRight {
+    opacity: 0;
+    position: absolute;
+    transform: translateX(100px);
+    width: calc(100% - 2rem);
 }
-
-header a {
-    color: #fff;
-    text-decoration: none;
+.enterLeft {
+    opacity: 0;
+    position: absolute;
+    transform: translateX(-100px);
+    width: calc(100% - 2rem);
+}
+.enterActive {
+    opacity: 1;
+    transform: translateX(0%);
+    transition: all 400ms;
+}
+.enterDone {
+    opacity: 1;
+}
+.exit {
+    opacity: 1;
+    transform: translateX(0%);
+    width: calc(100% - 2rem);
+}
+.exitActive,
+.exitActiveLeft {
+    opacity: 0;
+    position: absolute;
+    transform: translateX(-50px);
+    transition: all 400ms;
+}
+.exitActiveRight {
+    opacity: 0;
+    position: absolute;
+    transform: translateX(50px);
+    transition: all 400ms;
+}
+.exitDone {
+    opacity: 0;
 }

@@ -29,14 +29,14 @@ test('renders list of years', () => {
     expect(screen.getAllByRole('link')[10]).toHaveTextContent('2016');
 });
 
-test('renders search results by year', async () => {
+xtest('renders search results by year', async () => {
     render(<App />);
     fireEvent.click(screen.getByText(/2007/i));
     await waitFor(() => screen.getByText('Buzz'));
     expect(screen.getAllByRole('link')[1]).toHaveTextContent('Buzz');
 });
 
-test('renders beer details', async () => {
+xtest('renders beer details', async () => {
     render(<App />);
     fireEvent.click(screen.getByText(/2007/i));
     await waitFor(() => screen.getByText('Buzz'));
